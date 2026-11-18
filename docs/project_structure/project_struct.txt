@@ -1,0 +1,1475 @@
+Parallel_Processing_Systems/
+├── a1/
+│   ├── benchmarks/
+│   │   ├── N1024_T1/
+│   │   │   ├── life_1_1024.err
+│   │   │   └── life_1_1024.out
+│   │   ├── N1024_T2/
+│   │   │   ├── life_2_1024.err
+│   │   │   └── life_2_1024.out
+│   │   ├── N1024_T4/
+│   │   │   ├── life_4_1024.err
+│   │   │   └── life_4_1024.out
+│   │   ├── N1024_T6/
+│   │   │   ├── life_6_1024.err
+│   │   │   └── life_6_1024.out
+│   │   ├── N1024_T8/
+│   │   │   ├── life_8_1024.err
+│   │   │   └── life_8_1024.out
+│   │   ├── N4096_T1/
+│   │   │   ├── life_1_4096.err
+│   │   │   └── life_1_4096.out
+│   │   ├── N4096_T2/
+│   │   │   ├── life_2_4096.err
+│   │   │   └── life_2_4096.out
+│   │   ├── N4096_T4/
+│   │   │   ├── life_4_4096.err
+│   │   │   └── life_4_4096.out
+│   │   ├── N4096_T6/
+│   │   │   ├── life_6_4096.err
+│   │   │   └── life_6_4096.out
+│   │   ├── N4096_T8/
+│   │   │   ├── life_8_4096.err
+│   │   │   └── life_8_4096.out
+│   │   ├── N64_T1/
+│   │   │   ├── life_1_64.err
+│   │   │   └── life_1_64.out
+│   │   ├── N64_T2/
+│   │   │   ├── life_2_64.err
+│   │   │   └── life_2_64.out
+│   │   ├── N64_T4/
+│   │   │   ├── life_4_64.err
+│   │   │   └── life_4_64.out
+│   │   ├── N64_T6/
+│   │   │   ├── life_6_64.err
+│   │   │   └── life_6_64.out
+│   │   └── N64_T8/
+│   │       ├── life_8_64.err
+│   │       └── life_8_64.out
+│   ├── diagrams/
+│   │   ├── diagrams.py
+│   │   ├── results_full.txt
+│   │   ├── speedup_N1024.png
+│   │   ├── speedup_N4096.png
+│   │   ├── speedup_N64.png
+│   │   ├── time_N1024.png
+│   │   ├── time_N4096.png
+│   │   └── time_N64.png
+│   ├── docs/
+│   │   ├── askisi1-2025-2026.pdf
+│   │   └── pps_exercises_2025_2026.pdf
+│   ├── game_of_life.c
+│   ├── life_par
+│   ├── life_par.c
+│   ├── life_par.err
+│   ├── life_par.out
+│   ├── make_on_queue.sh
+│   ├── Makefile
+│   ├── makejob.err
+│   ├── makejob.out
+│   ├── README.md
+│   └── run_on_queue.sh
+├── a2/
+│   ├── docs/
+│   │   ├── askisi2-2025-26.pdf
+│   │   └── pps_exercises_2025_2026.pdf
+│   ├── FW/
+│   │   ├── benchmarks/
+│   │   │   ├── fw_sr_p_N1024_T1.err
+│   │   │   ├── fw_sr_p_N1024_T1.out
+│   │   │   ├── fw_sr_p_N1024_T16.err
+│   │   │   ├── fw_sr_p_N1024_T16.out
+│   │   │   ├── fw_sr_p_N1024_T2.err
+│   │   │   ├── fw_sr_p_N1024_T2.out
+│   │   │   ├── fw_sr_p_N1024_T32.err
+│   │   │   ├── fw_sr_p_N1024_T32.out
+│   │   │   ├── fw_sr_p_N1024_T4.err
+│   │   │   ├── fw_sr_p_N1024_T4.out
+│   │   │   ├── fw_sr_p_N1024_T64.err
+│   │   │   ├── fw_sr_p_N1024_T64.out
+│   │   │   ├── fw_sr_p_N1024_T8.err
+│   │   │   ├── fw_sr_p_N1024_T8.out
+│   │   │   ├── fw_sr_p_N2048_T1.err
+│   │   │   ├── fw_sr_p_N2048_T1.out
+│   │   │   ├── fw_sr_p_N2048_T16.err
+│   │   │   ├── fw_sr_p_N2048_T16.out
+│   │   │   ├── fw_sr_p_N2048_T2.err
+│   │   │   ├── fw_sr_p_N2048_T2.out
+│   │   │   ├── fw_sr_p_N2048_T32.err
+│   │   │   ├── fw_sr_p_N2048_T32.out
+│   │   │   ├── fw_sr_p_N2048_T4.err
+│   │   │   ├── fw_sr_p_N2048_T4.out
+│   │   │   ├── fw_sr_p_N2048_T64.err
+│   │   │   ├── fw_sr_p_N2048_T64.out
+│   │   │   ├── fw_sr_p_N2048_T8.err
+│   │   │   ├── fw_sr_p_N2048_T8.out
+│   │   │   ├── fw_sr_p_N4096_T1.err
+│   │   │   ├── fw_sr_p_N4096_T1.out
+│   │   │   ├── fw_sr_p_N4096_T16.err
+│   │   │   ├── fw_sr_p_N4096_T16.out
+│   │   │   ├── fw_sr_p_N4096_T2.err
+│   │   │   ├── fw_sr_p_N4096_T2.out
+│   │   │   ├── fw_sr_p_N4096_T32.err
+│   │   │   ├── fw_sr_p_N4096_T32.out
+│   │   │   ├── fw_sr_p_N4096_T4.err
+│   │   │   ├── fw_sr_p_N4096_T4.out
+│   │   │   ├── fw_sr_p_N4096_T64.err
+│   │   │   ├── fw_sr_p_N4096_T64.out
+│   │   │   ├── fw_sr_p_N4096_T8.err
+│   │   │   └── fw_sr_p_N4096_T8.out
+│   │   ├── fw.c
+│   │   ├── fw_sr.c
+│   │   ├── fw_sr_p.c
+│   │   ├── fw_tiled.c
+│   │   ├── make_fw.err
+│   │   ├── make_fw.out
+│   │   ├── make_on_queue.sh
+│   │   ├── make_on_queue.sh.save
+│   │   ├── Makefile
+│   │   ├── run_fw_sr_p.pbs_err
+│   │   ├── run_fw_sr_p.pbs_out
+│   │   ├── run_on_queue.sh
+│   │   ├── util.c
+│   │   └── util.h
+│   ├── kmeans/
+│   │   ├── benchmarks/
+│   │   │   ├── naive/
+│   │   │   │   ├── aff/
+│   │   │   │   │   ├── S256_N16_C32_L10_T1/
+│   │   │   │   │   │   ├── meta.txt
+│   │   │   │   │   │   └── output.txt
+│   │   │   │   │   ├── S256_N16_C32_L10_T16/
+│   │   │   │   │   │   ├── meta.txt
+│   │   │   │   │   │   └── output.txt
+│   │   │   │   │   ├── S256_N16_C32_L10_T2/
+│   │   │   │   │   │   ├── meta.txt
+│   │   │   │   │   │   └── output.txt
+│   │   │   │   │   ├── S256_N16_C32_L10_T32/
+│   │   │   │   │   │   ├── meta.txt
+│   │   │   │   │   │   └── output.txt
+│   │   │   │   │   ├── S256_N16_C32_L10_T4/
+│   │   │   │   │   │   ├── meta.txt
+│   │   │   │   │   │   └── output.txt
+│   │   │   │   │   ├── S256_N16_C32_L10_T64/
+│   │   │   │   │   │   ├── meta.txt
+│   │   │   │   │   │   └── output.txt
+│   │   │   │   │   └── S256_N16_C32_L10_T8/
+│   │   │   │   │       ├── meta.txt
+│   │   │   │   │       └── output.txt
+│   │   │   │   └── noaff/
+│   │   │   │       ├── S256_N16_C32_L10_T1/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T16/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T2/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T32/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T4/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T64/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       └── S256_N16_C32_L10_T8/
+│   │   │   │           ├── meta.txt
+│   │   │   │           └── output.txt
+│   │   │   ├── reduction/
+│   │   │   │   └── aff/
+│   │   │   │       ├── S256_N16_C32_L10_T1/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T16/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T2/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T32/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T4/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T64/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N16_C32_L10_T8/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N1_C4_L10_T1/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N1_C4_L10_T16/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N1_C4_L10_T2/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N1_C4_L10_T32/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N1_C4_L10_T4/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       ├── S256_N1_C4_L10_T64/
+│   │   │   │       │   ├── meta.txt
+│   │   │   │       │   └── output.txt
+│   │   │   │       └── S256_N1_C4_L10_T8/
+│   │   │   │           ├── meta.txt
+│   │   │   │           └── output.txt
+│   │   │   └── serial/
+│   │   │       ├── aff/
+│   │   │       │   ├── S256_N16_C32_L10_T1/
+│   │   │       │   │   ├── meta.txt
+│   │   │       │   │   └── output.txt
+│   │   │       │   └── S256_N1_C4_L10_T1/
+│   │   │       │       ├── meta.txt
+│   │   │       │       └── output.txt
+│   │   │       └── noaff/
+│   │   │           └── S256_N16_C32_L10_T1/
+│   │   │               ├── meta.txt
+│   │   │               └── output.txt
+│   │   ├── diagrams/
+│   │   │   ├── images/
+│   │   │   │   ├── 2.1.1_reduction_speedup.png
+│   │   │   │   ├── 2.1.1_reduction_speedup_par1.png
+│   │   │   │   ├── 2.1.1_reduction_time.png
+│   │   │   │   ├── 2.1.1_shared_speedup.png
+│   │   │   │   ├── 2.1.1_shared_speedup_par1.png
+│   │   │   │   ├── 2.1.1_shared_time.png
+│   │   │   │   ├── 2.1.2_reduction_speedup.png
+│   │   │   │   ├── 2.1.2_reduction_speedup_par1.png
+│   │   │   │   ├── 2.1.2_reduction_time.png
+│   │   │   │   ├── 2.1.2_shared_speedup.png
+│   │   │   │   ├── 2.1.2_shared_speedup_par1.png
+│   │   │   │   └── 2.1.2_shared_time.png
+│   │   │   ├── results/
+│   │   │   │   ├── results_2.1.1_reduction.txt
+│   │   │   │   ├── results_2.1.1_shared.txt
+│   │   │   │   ├── results_2.1.2_reduction.txt
+│   │   │   │   └── results_2.1.2_shared.txt
+│   │   │   ├── results_2.1.1_reduction.py
+│   │   │   ├── results_2.1.1_shared.py
+│   │   │   ├── results_2.1.2_reduction.py
+│   │   │   └── results_2.1.2_shared.py
+│   │   ├── file_io.c
+│   │   ├── file_io.o
+│   │   ├── kmeans.h
+│   │   ├── main.c
+│   │   ├── main.o
+│   │   ├── make_kmeans.err
+│   │   ├── make_kmeans.out
+│   │   ├── make_on_queue.sh
+│   │   ├── Makefile
+│   │   ├── omp_naive_kmeans.c
+│   │   ├── omp_naive_kmeans.o
+│   │   ├── omp_reduction_kmeans.c
+│   │   ├── omp_reduction_kmeans.o
+│   │   ├── run_kmeans.err
+│   │   ├── run_kmeans.out
+│   │   ├── run_on_queue.sh
+│   │   ├── seq_kmeans.c
+│   │   ├── seq_kmeans.o
+│   │   ├── util.c
+│   │   └── util.o
+│   └── README.md
+├── a3/
+│   ├── benchmarks/
+│   │   ├── array_lock/
+│   │   │   ├── S32_N16_C32_L10_T1/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T16/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T2/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T32/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T4/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T64/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   └── S32_N16_C32_L10_T8/
+│   │   │       ├── meta.txt
+│   │   │       └── output.txt
+│   │   ├── clh_lock/
+│   │   │   ├── S32_N16_C32_L10_T1/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T16/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T2/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T32/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T4/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T64/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   └── S32_N16_C32_L10_T8/
+│   │   │       ├── meta.txt
+│   │   │       └── output.txt
+│   │   ├── critical/
+│   │   │   ├── S32_N16_C32_L10_T1/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T16/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T2/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T32/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T4/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T64/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   └── S32_N16_C32_L10_T8/
+│   │   │       ├── meta.txt
+│   │   │       └── output.txt
+│   │   ├── nosync_lock/
+│   │   │   ├── S32_N16_C32_L10_T1/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T16/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T2/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T32/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T4/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T64/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   └── S32_N16_C32_L10_T8/
+│   │   │       ├── meta.txt
+│   │   │       └── output.txt
+│   │   ├── pthread_mutex_lock/
+│   │   │   ├── S32_N16_C32_L10_T1/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T16/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T2/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T32/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T4/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T64/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   └── S32_N16_C32_L10_T8/
+│   │   │       ├── meta.txt
+│   │   │       └── output.txt
+│   │   ├── pthread_spin_lock/
+│   │   │   ├── S32_N16_C32_L10_T1/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T16/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T2/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T32/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T4/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T64/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   └── S32_N16_C32_L10_T8/
+│   │   │       ├── meta.txt
+│   │   │       └── output.txt
+│   │   ├── tas_lock/
+│   │   │   ├── S32_N16_C32_L10_T1/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T16/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T2/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T32/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T4/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   ├── S32_N16_C32_L10_T64/
+│   │   │   │   ├── meta.txt
+│   │   │   │   └── output.txt
+│   │   │   └── S32_N16_C32_L10_T8/
+│   │   │       ├── meta.txt
+│   │   │       └── output.txt
+│   │   └── ttas_lock/
+│   │       ├── S32_N16_C32_L10_T1/
+│   │       │   ├── meta.txt
+│   │       │   └── output.txt
+│   │       ├── S32_N16_C32_L10_T16/
+│   │       │   ├── meta.txt
+│   │       │   └── output.txt
+│   │       ├── S32_N16_C32_L10_T2/
+│   │       │   ├── meta.txt
+│   │       │   └── output.txt
+│   │       ├── S32_N16_C32_L10_T32/
+│   │       │   ├── meta.txt
+│   │       │   └── output.txt
+│   │       ├── S32_N16_C32_L10_T4/
+│   │       │   ├── meta.txt
+│   │       │   └── output.txt
+│   │       ├── S32_N16_C32_L10_T64/
+│   │       │   ├── meta.txt
+│   │       │   └── output.txt
+│   │       └── S32_N16_C32_L10_T8/
+│   │           ├── meta.txt
+│   │           └── output.txt
+│   ├── diagrams/
+│   │   ├── images/
+│   │   │   ├── results_all_total.png
+│   │   │   ├── results_array_lock_total.png
+│   │   │   ├── results_clh_lock_total.png
+│   │   │   ├── results_critical_total.png
+│   │   │   ├── results_nosync_lock_total.png
+│   │   │   ├── results_pthread_mutex_lock_total.png
+│   │   │   ├── results_pthread_spin_lock_total.png
+│   │   │   ├── results_tas_lock_total.png
+│   │   │   └── results_ttas_lock_total.png
+│   │   ├── results/
+│   │   │   ├── results_array_lock.txt
+│   │   │   ├── results_clh_lock.txt
+│   │   │   ├── results_critical.txt
+│   │   │   ├── results_nosync_lock.txt
+│   │   │   ├── results_pthread_mutex_lock.txt
+│   │   │   ├── results_pthread_spin_lock.txt
+│   │   │   ├── results_tas_lock.txt
+│   │   │   └── results_ttas_lock.txt
+│   │   └── diagrams.py
+│   ├── docs/
+│   │   └── pps_exercises_2025_2026.pdf
+│   ├── locks/
+│   │   ├── alloc.h
+│   │   ├── array_lock.c
+│   │   ├── array_lock.o
+│   │   ├── clh_lock.c
+│   │   ├── clh_lock.o
+│   │   ├── lock.h
+│   │   ├── nosync_lock.c
+│   │   ├── nosync_lock.o
+│   │   ├── pthread_mutex_lock.c
+│   │   ├── pthread_mutex_lock.o
+│   │   ├── pthread_spin_lock.c
+│   │   ├── pthread_spin_lock.o
+│   │   ├── tas_lock.c
+│   │   ├── tas_lock.o
+│   │   ├── ttas_lock.c
+│   │   └── ttas_lock.o
+│   ├── file_io.c
+│   ├── file_io.o
+│   ├── kmeans.h
+│   ├── kmeans_omp_array_lock
+│   ├── kmeans_omp_clh_lock
+│   ├── kmeans_omp_critical
+│   ├── kmeans_omp_naive
+│   ├── kmeans_omp_nosync_lock
+│   ├── kmeans_omp_pthread_mutex_lock
+│   ├── kmeans_omp_pthread_spin_lock
+│   ├── kmeans_omp_tas_lock
+│   ├── kmeans_omp_ttas_lock
+│   ├── main.c
+│   ├── main.o
+│   ├── make_kmeans.err
+│   ├── make_kmeans.out
+│   ├── make_on_queue.sh
+│   ├── Makefile
+│   ├── omp_critical_kmeans.c
+│   ├── omp_critical_kmeans.o
+│   ├── omp_lock_kmeans.c
+│   ├── omp_lock_kmeans.o
+│   ├── omp_naive_kmeans.c
+│   ├── omp_naive_kmeans.o
+│   ├── README.md
+│   ├── run_kmeans_locks.err
+│   ├── run_kmeans_locks.out
+│   ├── run_on_queue.sh
+│   ├── seq_kmeans.c
+│   ├── util.c
+│   └── util.o
+├── a4/
+│   ├── benchmarks/
+│   │   ├── conc_ll_cgl_S1024_T128_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T128_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T128_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T128_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T128_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T128_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T128_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T128_W80_10_10.out
+│   │   ├── conc_ll_cgl_S1024_T16_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T16_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T16_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T16_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T16_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T16_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T16_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T16_W80_10_10.out
+│   │   ├── conc_ll_cgl_S1024_T1_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T1_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T1_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T1_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T1_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T1_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T1_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T1_W80_10_10.out
+│   │   ├── conc_ll_cgl_S1024_T2_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T2_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T2_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T2_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T2_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T2_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T2_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T2_W80_10_10.out
+│   │   ├── conc_ll_cgl_S1024_T32_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T32_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T32_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T32_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T32_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T32_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T32_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T32_W80_10_10.out
+│   │   ├── conc_ll_cgl_S1024_T4_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T4_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T4_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T4_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T4_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T4_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T4_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T4_W80_10_10.out
+│   │   ├── conc_ll_cgl_S1024_T64_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T64_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T64_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T64_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T64_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T64_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T64_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T64_W80_10_10.out
+│   │   ├── conc_ll_cgl_S1024_T8_W0_50_50.err
+│   │   ├── conc_ll_cgl_S1024_T8_W0_50_50.out
+│   │   ├── conc_ll_cgl_S1024_T8_W100_0_0.err
+│   │   ├── conc_ll_cgl_S1024_T8_W100_0_0.out
+│   │   ├── conc_ll_cgl_S1024_T8_W20_40_40.err
+│   │   ├── conc_ll_cgl_S1024_T8_W20_40_40.out
+│   │   ├── conc_ll_cgl_S1024_T8_W80_10_10.err
+│   │   ├── conc_ll_cgl_S1024_T8_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T128_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T128_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T128_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T128_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T128_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T128_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T128_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T128_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T16_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T16_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T16_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T16_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T16_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T16_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T16_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T16_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T1_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T1_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T1_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T1_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T1_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T1_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T1_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T1_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T2_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T2_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T2_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T2_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T2_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T2_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T2_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T2_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T32_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T32_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T32_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T32_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T32_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T32_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T32_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T32_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T4_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T4_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T4_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T4_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T4_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T4_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T4_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T4_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T64_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T64_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T64_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T64_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T64_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T64_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T64_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T64_W80_10_10.out
+│   │   ├── conc_ll_cgl_S8192_T8_W0_50_50.err
+│   │   ├── conc_ll_cgl_S8192_T8_W0_50_50.out
+│   │   ├── conc_ll_cgl_S8192_T8_W100_0_0.err
+│   │   ├── conc_ll_cgl_S8192_T8_W100_0_0.out
+│   │   ├── conc_ll_cgl_S8192_T8_W20_40_40.err
+│   │   ├── conc_ll_cgl_S8192_T8_W20_40_40.out
+│   │   ├── conc_ll_cgl_S8192_T8_W80_10_10.err
+│   │   ├── conc_ll_cgl_S8192_T8_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T128_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T128_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T128_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T128_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T128_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T128_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T128_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T128_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T16_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T16_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T16_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T16_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T16_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T16_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T16_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T16_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T1_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T1_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T1_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T1_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T1_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T1_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T1_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T1_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T2_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T2_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T2_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T2_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T2_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T2_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T2_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T2_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T32_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T32_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T32_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T32_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T32_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T32_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T32_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T32_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T4_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T4_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T4_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T4_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T4_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T4_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T4_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T4_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T64_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T64_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T64_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T64_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T64_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T64_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T64_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T64_W80_10_10.out
+│   │   ├── conc_ll_fgl_S1024_T8_W0_50_50.err
+│   │   ├── conc_ll_fgl_S1024_T8_W0_50_50.out
+│   │   ├── conc_ll_fgl_S1024_T8_W100_0_0.err
+│   │   ├── conc_ll_fgl_S1024_T8_W100_0_0.out
+│   │   ├── conc_ll_fgl_S1024_T8_W20_40_40.err
+│   │   ├── conc_ll_fgl_S1024_T8_W20_40_40.out
+│   │   ├── conc_ll_fgl_S1024_T8_W80_10_10.err
+│   │   ├── conc_ll_fgl_S1024_T8_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T128_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T128_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T128_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T128_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T128_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T128_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T128_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T128_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T16_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T16_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T16_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T16_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T16_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T16_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T16_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T16_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T1_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T1_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T1_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T1_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T1_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T1_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T1_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T1_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T2_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T2_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T2_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T2_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T2_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T2_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T2_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T2_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T32_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T32_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T32_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T32_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T32_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T32_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T32_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T32_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T4_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T4_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T4_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T4_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T4_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T4_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T4_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T4_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T64_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T64_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T64_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T64_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T64_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T64_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T64_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T64_W80_10_10.out
+│   │   ├── conc_ll_fgl_S8192_T8_W0_50_50.err
+│   │   ├── conc_ll_fgl_S8192_T8_W0_50_50.out
+│   │   ├── conc_ll_fgl_S8192_T8_W100_0_0.err
+│   │   ├── conc_ll_fgl_S8192_T8_W100_0_0.out
+│   │   ├── conc_ll_fgl_S8192_T8_W20_40_40.err
+│   │   ├── conc_ll_fgl_S8192_T8_W20_40_40.out
+│   │   ├── conc_ll_fgl_S8192_T8_W80_10_10.err
+│   │   ├── conc_ll_fgl_S8192_T8_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T128_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T128_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T128_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T128_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T128_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T128_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T128_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T128_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T16_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T16_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T16_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T16_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T16_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T16_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T16_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T16_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T1_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T1_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T1_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T1_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T1_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T1_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T1_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T1_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T2_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T2_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T2_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T2_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T2_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T2_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T2_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T2_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T32_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T32_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T32_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T32_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T32_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T32_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T32_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T32_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T4_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T4_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T4_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T4_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T4_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T4_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T4_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T4_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T64_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T64_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T64_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T64_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T64_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T64_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T64_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T64_W80_10_10.out
+│   │   ├── conc_ll_lazy_S1024_T8_W0_50_50.err
+│   │   ├── conc_ll_lazy_S1024_T8_W0_50_50.out
+│   │   ├── conc_ll_lazy_S1024_T8_W100_0_0.err
+│   │   ├── conc_ll_lazy_S1024_T8_W100_0_0.out
+│   │   ├── conc_ll_lazy_S1024_T8_W20_40_40.err
+│   │   ├── conc_ll_lazy_S1024_T8_W20_40_40.out
+│   │   ├── conc_ll_lazy_S1024_T8_W80_10_10.err
+│   │   ├── conc_ll_lazy_S1024_T8_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T128_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T128_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T128_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T128_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T128_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T128_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T128_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T128_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T16_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T16_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T16_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T16_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T16_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T16_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T16_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T16_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T1_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T1_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T1_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T1_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T1_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T1_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T1_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T1_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T2_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T2_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T2_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T2_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T2_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T2_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T2_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T2_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T32_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T32_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T32_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T32_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T32_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T32_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T32_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T32_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T4_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T4_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T4_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T4_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T4_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T4_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T4_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T4_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T64_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T64_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T64_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T64_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T64_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T64_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T64_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T64_W80_10_10.out
+│   │   ├── conc_ll_lazy_S8192_T8_W0_50_50.err
+│   │   ├── conc_ll_lazy_S8192_T8_W0_50_50.out
+│   │   ├── conc_ll_lazy_S8192_T8_W100_0_0.err
+│   │   ├── conc_ll_lazy_S8192_T8_W100_0_0.out
+│   │   ├── conc_ll_lazy_S8192_T8_W20_40_40.err
+│   │   ├── conc_ll_lazy_S8192_T8_W20_40_40.out
+│   │   ├── conc_ll_lazy_S8192_T8_W80_10_10.err
+│   │   ├── conc_ll_lazy_S8192_T8_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T128_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T128_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T128_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T128_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T128_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T128_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T128_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T128_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T16_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T16_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T16_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T16_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T16_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T16_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T16_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T16_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T1_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T1_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T1_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T1_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T1_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T1_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T1_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T1_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T2_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T2_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T2_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T2_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T2_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T2_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T2_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T2_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T32_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T32_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T32_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T32_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T32_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T32_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T32_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T32_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T4_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T4_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T4_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T4_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T4_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T4_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T4_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T4_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T64_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T64_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T64_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T64_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T64_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T64_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T64_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T64_W80_10_10.out
+│   │   ├── conc_ll_nb_S1024_T8_W0_50_50.err
+│   │   ├── conc_ll_nb_S1024_T8_W0_50_50.out
+│   │   ├── conc_ll_nb_S1024_T8_W100_0_0.err
+│   │   ├── conc_ll_nb_S1024_T8_W100_0_0.out
+│   │   ├── conc_ll_nb_S1024_T8_W20_40_40.err
+│   │   ├── conc_ll_nb_S1024_T8_W20_40_40.out
+│   │   ├── conc_ll_nb_S1024_T8_W80_10_10.err
+│   │   ├── conc_ll_nb_S1024_T8_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T128_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T128_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T128_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T128_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T128_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T128_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T128_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T128_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T16_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T16_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T16_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T16_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T16_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T16_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T16_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T16_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T1_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T1_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T1_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T1_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T1_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T1_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T1_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T1_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T2_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T2_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T2_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T2_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T2_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T2_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T2_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T2_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T32_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T32_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T32_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T32_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T32_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T32_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T32_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T32_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T4_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T4_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T4_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T4_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T4_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T4_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T4_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T4_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T64_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T64_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T64_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T64_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T64_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T64_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T64_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T64_W80_10_10.out
+│   │   ├── conc_ll_nb_S8192_T8_W0_50_50.err
+│   │   ├── conc_ll_nb_S8192_T8_W0_50_50.out
+│   │   ├── conc_ll_nb_S8192_T8_W100_0_0.err
+│   │   ├── conc_ll_nb_S8192_T8_W100_0_0.out
+│   │   ├── conc_ll_nb_S8192_T8_W20_40_40.err
+│   │   ├── conc_ll_nb_S8192_T8_W20_40_40.out
+│   │   ├── conc_ll_nb_S8192_T8_W80_10_10.err
+│   │   ├── conc_ll_nb_S8192_T8_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T128_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T128_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T128_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T128_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T128_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T128_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T128_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T128_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T16_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T16_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T16_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T16_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T16_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T16_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T16_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T16_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T1_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T1_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T1_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T1_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T1_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T1_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T1_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T1_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T2_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T2_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T2_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T2_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T2_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T2_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T2_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T2_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T32_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T32_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T32_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T32_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T32_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T32_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T32_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T32_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T4_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T4_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T4_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T4_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T4_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T4_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T4_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T4_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T64_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T64_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T64_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T64_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T64_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T64_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T64_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T64_W80_10_10.out
+│   │   ├── conc_ll_opt_S1024_T8_W0_50_50.err
+│   │   ├── conc_ll_opt_S1024_T8_W0_50_50.out
+│   │   ├── conc_ll_opt_S1024_T8_W100_0_0.err
+│   │   ├── conc_ll_opt_S1024_T8_W100_0_0.out
+│   │   ├── conc_ll_opt_S1024_T8_W20_40_40.err
+│   │   ├── conc_ll_opt_S1024_T8_W20_40_40.out
+│   │   ├── conc_ll_opt_S1024_T8_W80_10_10.err
+│   │   ├── conc_ll_opt_S1024_T8_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T128_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T128_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T128_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T128_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T128_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T128_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T128_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T128_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T16_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T16_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T16_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T16_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T16_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T16_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T16_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T16_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T1_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T1_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T1_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T1_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T1_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T1_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T1_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T1_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T2_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T2_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T2_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T2_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T2_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T2_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T2_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T2_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T32_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T32_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T32_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T32_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T32_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T32_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T32_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T32_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T4_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T4_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T4_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T4_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T4_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T4_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T4_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T4_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T64_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T64_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T64_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T64_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T64_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T64_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T64_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T64_W80_10_10.out
+│   │   ├── conc_ll_opt_S8192_T8_W0_50_50.err
+│   │   ├── conc_ll_opt_S8192_T8_W0_50_50.out
+│   │   ├── conc_ll_opt_S8192_T8_W100_0_0.err
+│   │   ├── conc_ll_opt_S8192_T8_W100_0_0.out
+│   │   ├── conc_ll_opt_S8192_T8_W20_40_40.err
+│   │   ├── conc_ll_opt_S8192_T8_W20_40_40.out
+│   │   ├── conc_ll_opt_S8192_T8_W80_10_10.err
+│   │   ├── conc_ll_opt_S8192_T8_W80_10_10.out
+│   │   ├── conc_ll_serial_S1024_T1_W0_50_50.err
+│   │   ├── conc_ll_serial_S1024_T1_W0_50_50.out
+│   │   ├── conc_ll_serial_S1024_T1_W100_0_0.err
+│   │   ├── conc_ll_serial_S1024_T1_W100_0_0.out
+│   │   ├── conc_ll_serial_S1024_T1_W20_40_40.err
+│   │   ├── conc_ll_serial_S1024_T1_W20_40_40.out
+│   │   ├── conc_ll_serial_S1024_T1_W80_10_10.err
+│   │   ├── conc_ll_serial_S1024_T1_W80_10_10.out
+│   │   ├── conc_ll_serial_S8192_T1_W0_50_50.err
+│   │   ├── conc_ll_serial_S8192_T1_W0_50_50.out
+│   │   ├── conc_ll_serial_S8192_T1_W100_0_0.err
+│   │   ├── conc_ll_serial_S8192_T1_W100_0_0.out
+│   │   ├── conc_ll_serial_S8192_T1_W20_40_40.err
+│   │   ├── conc_ll_serial_S8192_T1_W20_40_40.out
+│   │   ├── conc_ll_serial_S8192_T1_W80_10_10.err
+│   │   └── conc_ll_serial_S8192_T1_W80_10_10.out
+│   ├── conc_ll/
+│   │   ├── lib/
+│   │   │   ├── aff.c
+│   │   │   ├── aff.h
+│   │   │   ├── alloc.h
+│   │   │   └── timer.h
+│   │   ├── ll/
+│   │   │   ├── ll.h
+│   │   │   ├── ll_cgl.c
+│   │   │   ├── ll_fgl.c
+│   │   │   ├── ll_lazy.c
+│   │   │   ├── ll_nb.c
+│   │   │   ├── ll_opt.c
+│   │   │   └── ll_serial.c
+│   │   ├── main.c
+│   │   ├── Makefile
+│   │   ├── run_conc_ll.pbs_err
+│   │   ├── run_conc_ll.pbs_out
+│   │   ├── run_on_queue.sh
+│   │   ├── x.cgl
+│   │   ├── x.fgl
+│   │   ├── x.lazy
+│   │   ├── x.nb
+│   │   ├── x.opt
+│   │   └── x.serial
+│   ├── diagrams/
+│   │   ├── images/
+│   │   │   ├── speedup_S1024_W0_50_50.png
+│   │   │   ├── speedup_S1024_W100_0_0.png
+│   │   │   ├── speedup_S1024_W20_40_40.png
+│   │   │   ├── speedup_S1024_W80_10_10.png
+│   │   │   ├── speedup_S8192_W0_50_50.png
+│   │   │   ├── speedup_S8192_W100_0_0.png
+│   │   │   ├── speedup_S8192_W20_40_40.png
+│   │   │   ├── speedup_S8192_W80_10_10.png
+│   │   │   ├── throughput_S1024_W0_50_50.png
+│   │   │   ├── throughput_S1024_W100_0_0.png
+│   │   │   ├── throughput_S1024_W20_40_40.png
+│   │   │   ├── throughput_S1024_W80_10_10.png
+│   │   │   ├── throughput_S8192_W0_50_50.png
+│   │   │   ├── throughput_S8192_W100_0_0.png
+│   │   │   ├── throughput_S8192_W20_40_40.png
+│   │   │   └── throughput_S8192_W80_10_10.png
+│   │   └── plot_results.py
+│   ├── docs/
+│   │   └── pps_exercises_2025_2026.pdf
+│   └── README.md
+├── a5/
+│   ├── diagrams/
+│   │   ├── images/
+│   │   │   ├── speedup_coo2_naive_transpose_shmem.png
+│   │   │   ├── speedup_coo2_naive_transpose_shmem_all_gpu.png
+│   │   │   ├── speedup_coo32_naive.png
+│   │   │   ├── speedup_coo32_naive_transpose.png
+│   │   │   ├── speedup_coo32_naive_transpose_shmem.png
+│   │   │   ├── speedup_coo32_naive_transpose_shmem_all_gpu.png
+│   │   │   ├── time_breakdown_coo2_naive_transpose_shmem.png
+│   │   │   ├── time_breakdown_coo2_naive_transpose_shmem_all_gpu.png
+│   │   │   ├── time_breakdown_coo32_naive.png
+│   │   │   ├── time_breakdown_coo32_naive_transpose.png
+│   │   │   ├── time_breakdown_coo32_naive_transpose_shmem.png
+│   │   │   └── time_breakdown_coo32_naive_transpose_shmem_all_gpu.png
+│   │   └── generate_diagrams.py
+│   ├── docs/
+│   │   └── pps_exercises_2025_2026.pdf
+│   ├── Execution_logs/
+│   │   ├── sample_log_Sz-256_Coo-2_Cl-4.csv
+│   │   ├── silver1-V100_Sz-1024_Coo-2_Cl-64.csv
+│   │   ├── silver1-V100_Sz-1024_Coo-32_Cl-64.csv
+│   │   ├── silver1-V100_Sz-256_Coo-16_Cl-16.csv
+│   │   ├── Sz-1024_Coo-2_Cl-64.csv
+│   │   ├── Sz-1024_Coo-32_Cl-64.csv
+│   │   └── Sz-256_Coo-16_Cl-16.csv
+│   ├── Helper_functions/
+│   │   ├── alloc.c
+│   │   ├── alloc.h
+│   │   ├── decls.h
+│   │   ├── error.c
+│   │   ├── error.h
+│   │   ├── file_io.c
+│   │   ├── kmeans.h
+│   │   └── util.c
+│   ├── ObjectDir/
+│   │   └── Dont_Readme
+│   ├── benchmark.err
+│   ├── benchmark.out
+│   ├── cuda_kmeans_all_gpu.cu
+│   ├── cuda_kmeans_all_gpu_delta_reduction.cu
+│   ├── cuda_kmeans_naive.cu
+│   ├── cuda_kmeans_shared.cu
+│   ├── cuda_kmeans_transpose.cu
+│   ├── gpu_run_silver1.sh
+│   ├── main_gpu.cu
+│   ├── main_sec.c
+│   ├── make_kmeans.err
+│   ├── make_kmeans.out
+│   ├── make_on_queue.sh
+│   ├── Makefile
+│   ├── README.md
+│   ├── run_on_queue.sh
+│   ├── seq_kmeans.c
+│   ├── validate.err
+│   ├── validate.out
+│   ├── validate_on_queue.sh
+│   └── validation_results.txt
+├── a6/
+│   ├── diagrams/
+│   │   ├── images/
+│   │   │   ├── heat_transfer/
+│   │   │   │   ├── jacobi_convergence_512_p64.png
+│   │   │   │   ├── jacobi_speedup_2048.png
+│   │   │   │   ├── jacobi_speedup_4096.png
+│   │   │   │   ├── jacobi_speedup_6144.png
+│   │   │   │   ├── jacobi_times_2048_p16.png
+│   │   │   │   ├── jacobi_times_2048_p32.png
+│   │   │   │   ├── jacobi_times_2048_p64.png
+│   │   │   │   ├── jacobi_times_2048_p8.png
+│   │   │   │   ├── jacobi_times_4096_p16.png
+│   │   │   │   ├── jacobi_times_4096_p32.png
+│   │   │   │   ├── jacobi_times_4096_p64.png
+│   │   │   │   ├── jacobi_times_4096_p8.png
+│   │   │   │   ├── jacobi_times_6144_p16.png
+│   │   │   │   ├── jacobi_times_6144_p32.png
+│   │   │   │   ├── jacobi_times_6144_p64.png
+│   │   │   │   └── jacobi_times_6144_p8.png
+│   │   │   └── kmeans/
+│   │   │       ├── kmeans_speedup.png
+│   │   │       └── kmeans_time.png
+│   │   ├── diagrams_heat_transfer.py
+│   │   └── diagrams_kmeans.py
+│   ├── docs/
+│   │   ├── askisi4-2025-2026.pdf
+│   │   └── pps_exercises_2025_2026.pdf
+│   ├── heat_transfer/
+│   │   ├── mpi/
+│   │   │   ├── error_benchmark.txt
+│   │   │   ├── gauss_mpi
+│   │   │   ├── jacobi_mpi
+│   │   │   ├── make_error.txt
+│   │   │   ├── make_on_queue.sh
+│   │   │   ├── make_output.txt
+│   │   │   ├── Makefile
+│   │   │   ├── mpi_gauss.c
+│   │   │   ├── mpi_jacobi.c
+│   │   │   ├── mpi_redblack.c
+│   │   │   ├── redblack_mpi
+│   │   │   ├── results_benchmark.txt
+│   │   │   ├── run_on_queue.sh
+│   │   │   ├── utils.c
+│   │   │   └── utils.h
+│   │   ├── serial/
+│   │   │   ├── gauss_serial
+│   │   │   ├── GaussSeidelSOR_serial.c
+│   │   │   ├── jacobi_serial
+│   │   │   ├── Jacobi_serial.c
+│   │   │   ├── make_on_queue.sh
+│   │   │   ├── Makefile
+│   │   │   ├── redblack_serial
+│   │   │   ├── RedBlackSOR_serial.c
+│   │   │   ├── run_on_queue.sh
+│   │   │   ├── utils.c
+│   │   │   └── utils.h
+│   │   ├── validate_error.txt
+│   │   ├── validate_on_queue.sh
+│   │   └── validate_output.txt
+│   ├── kmeans/
+│   │   ├── benchmarks_kmeans/
+│   │   │   ├── kmeans_np1.txt
+│   │   │   ├── kmeans_np16.txt
+│   │   │   ├── kmeans_np2.txt
+│   │   │   ├── kmeans_np32.txt
+│   │   │   ├── kmeans_np4.txt
+│   │   │   ├── kmeans_np64.txt
+│   │   │   └── kmeans_np8.txt
+│   │   ├── error_kmeans
+│   │   ├── errormakejob
+│   │   ├── file_io.c
+│   │   ├── file_io.o
+│   │   ├── kmeans.c
+│   │   ├── kmeans.h
+│   │   ├── kmeans.o
+│   │   ├── kmeans_mpi
+│   │   ├── main.c
+│   │   ├── main.o
+│   │   ├── make_on_queue.sh
+│   │   ├── Makefile
+│   │   ├── out_kmeans
+│   │   ├── outmakejob
+│   │   ├── run_on_queue.sh
+│   │   ├── util.c
+│   │   └── util.o
+│   └── README.md
+├── docs/
+│   ├── lecture_slides/
+│   │   ├── MPI.pdf
+│   │   ├── OpenMP.pdf
+│   │   ├── Δίκτυα Διασύνδεσης.pdf
+│   │   ├── Εισαγωγή.pdf
+│   │   ├── Παράλληλος Προγραμματισμός σε Επεξεργαστές Γραφικών.pdf
+│   │   ├── Παράλληλος Προγραμματισμός, Μέρος Α.pdf
+│   │   ├── Παράλληλος Προγραμματισμός, Μέρος Β.pdf
+│   │   ├── Παράλληλος Προγραμματισμός, Μέρος Γ.pdf
+│   │   ├── Παράλληλος Προγραμματισμός, Μέρος Δ.pdf
+│   │   └── Συγχρονισμός.pdf
+│   ├── misc/
+│   │   ├── File transfers.txt
+│   │   ├── pps-lab-guide_pres.pdf
+│   │   └── pps_lab_guide.pdf
+│   ├── project_structure/
+│   │   ├── project_struct.py
+│   │   └── project_struct.txt
+│   ├── reports/
+│   │   ├── final/
+│   │   │   ├── parlab05_report_a1-a2_final.pdf
+│   │   │   ├── parlab05_report_a1-a3_final.pdf
+│   │   │   ├── parlab05_report_a1-a4_final.pdf
+│   │   │   ├── parlab05_report_a1-a5_final.pdf
+│   │   │   ├── parlab05_report_a1-a6_final.pdf
+│   │   │   └── parlab05_report_a1_final.pdf
+│   │   ├── individual/
+│   │   │   ├── a1/
+│   │   │   │   ├── report_misc/
+│   │   │   │   │   ├── life_par.c.pdf
+│   │   │   │   │   ├── make_on_queue.sh.pdf
+│   │   │   │   │   ├── Makefile.pdf
+│   │   │   │   │   └── run_on_queue.sh.pdf
+│   │   │   │   ├── parlab05_report_a1.docx
+│   │   │   │   ├── parlab05_report_a1.pdf
+│   │   │   │   └── parlab05_report_a1_final.pdf
+│   │   │   ├── a2/
+│   │   │   │   ├── report_misc/
+│   │   │   │   │   ├── FW/
+│   │   │   │   │   │   ├── fw_sr_p.c.pdf
+│   │   │   │   │   │   └── run_on_queue.sh.pdf
+│   │   │   │   │   └── kmeans/
+│   │   │   │   │       ├── file_io.c.pdf
+│   │   │   │   │       ├── make_on_queue.sh.pdf
+│   │   │   │   │       ├── Makefile.pdf
+│   │   │   │   │       ├── omp_naive_kmeans.c.pdf
+│   │   │   │   │       ├── omp_reduction_kmeans.c.pdf
+│   │   │   │   │       └── run_on_queue.sh.pdf
+│   │   │   │   ├── parlab05_report_a2.docx
+│   │   │   │   ├── parlab05_report_a2.pdf
+│   │   │   │   └── parlab05_report_a2_final.pdf
+│   │   │   ├── a3/
+│   │   │   │   ├── report_misc/
+│   │   │   │   │   └── run_on_queue.sh.pdf
+│   │   │   │   ├── parlab05_report_a3.docx
+│   │   │   │   ├── parlab05_report_a3.pdf
+│   │   │   │   └── parlab05_report_a3_final.pdf
+│   │   │   ├── a4/
+│   │   │   │   ├── report_misc/
+│   │   │   │   │   └── run_on_queue.sh.pdf
+│   │   │   │   ├── parlab05_report_a4.docx
+│   │   │   │   ├── parlab05_report_a4.pdf
+│   │   │   │   ├── parlab05_report_a4_final.pdf
+│   │   │   │   └── Αναφορά Ανδρέα.docx
+│   │   │   ├── a5/
+│   │   │   │   ├── report_misc/
+│   │   │   │   │   ├── cuda_kmeans_all_gpu.cu.pdf
+│   │   │   │   │   ├── cuda_kmeans_naive.cu.pdf
+│   │   │   │   │   ├── cuda_kmeans_shared.cu.pdf
+│   │   │   │   │   └── cuda_kmeans_transpose.cu.pdf
+│   │   │   │   ├── parlab05_report_a5.docx
+│   │   │   │   ├── parlab05_report_a5.pdf
+│   │   │   │   └── parlab05_report_a5_final.pdf
+│   │   │   └── a6/
+│   │   │       ├── report_misc/
+│   │   │       │   ├── file_io.c.pdf
+│   │   │       │   ├── kmeans.c.pdf
+│   │   │       │   ├── main.c.pdf
+│   │   │       │   └── mpi_jacobi.c.pdf
+│   │   │       ├── parlab05_report_a6.docx
+│   │   │       ├── parlab05_report_a6.pdf
+│   │   │       └── parlab05_report_a6_final.pdf
+│   │   └── parlab05 - report_template.docx
+│   └── README.md
+├── shell_scripts/
+│   ├── mount_orion.sh
+│   ├── push_to_orion.sh
+│   ├── push_to_scirouter.sh
+│   ├── README.md
+│   └── unmount_orion.sh
+├── .gitignore
+├── LICENSE
+└── README.md
+
+Total directories: 187, Total files: 1286

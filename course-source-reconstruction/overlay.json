@@ -1,0 +1,2279 @@
+[
+  {
+    "path": "a1/life_par.c",
+    "base_path": "a1/game_of_life.c",
+    "base_source": "Matched serial version from the course assignment 2025–26",
+    "base_sha256": "0af409474886817c2420a22fbc8b6a222aeb036a11db82a11422ff782c63a122",
+    "reconstructed_sha256": "6b45b9b533c5f51767971aad066a148358af1c92a6d3502fba42fbaf1bdd1396",
+    "segments": [
+      {
+        "copy": [
+          0,
+          16
+        ]
+      },
+      {
+        "student_lines": [
+          "#include <omp.h>\n"
+        ]
+      },
+      {
+        "copy": [
+          16,
+          33
+        ]
+      },
+      {
+        "student_lines": [
+          "    int i, j, t, nbrs;         // helper variables\n"
+        ]
+      },
+      {
+        "copy": [
+          34,
+          63
+        ]
+      },
+      {
+        "copy": [
+          3,
+          4
+        ]
+      },
+      {
+        "copy": [
+          62,
+          63
+        ]
+      },
+      {
+        "copy": [
+          3,
+          4
+        ]
+      },
+      {
+        "student_lines": [
+          "    for (t = 0; t < T; ++t)\n"
+        ]
+      },
+      {
+        "copy": [
+          64,
+          65
+        ]
+      },
+      {
+        "copy": [
+          3,
+          4
+        ]
+      },
+      {
+        "student_lines": [
+          "/* Parallelize rows; implicit barrier at loop end */\n",
+          "/*  scedule is static\n",
+          "    (i, j) as loop indices are private\n",
+          "    (N, previous, current) are shared, as they are enclosed by the loop\n",
+          "    nbrs must be private\n",
+          "    by default */\n",
+          "/* Kept here for clarity */\n",
+          "#pragma omp parallel for schedule(static) private(i, j, nbrs) shared(N, previous, current)\n",
+          "        for (i = 1; i < N - 1; ++i)\n",
+          "        {\n",
+          "            for (j = 1; j < N - 1; ++j)\n"
+        ]
+      },
+      {
+        "copy": [
+          67,
+          68
+        ]
+      },
+      {
+        "student_lines": [
+          "                nbrs =\n",
+          "                    previous[i + 1][j + 1] + previous[i + 1][j] + previous[i + 1][j - 1] +\n",
+          "                    previous[i][j - 1] + previous[i][j + 1] +\n",
+          "                    previous[i - 1][j - 1] + previous[i - 1][j] + previous[i - 1][j + 1];\n"
+        ]
+      },
+      {
+        "copy": [
+          3,
+          4
+        ]
+      },
+      {
+        "student_lines": [
+          "                current[i][j] = (nbrs == 3 || (previous[i][j] + nbrs == 3)) ? 1 : 0;\n"
+        ]
+      },
+      {
+        "copy": [
+          73,
+          74
+        ]
+      },
+      {
+        "student_lines": [
+          "        } /* implicit barrier here: all threads finished step t */\n"
+        ]
+      },
+      {
+        "copy": [
+          74,
+          76
+        ]
+      },
+      {
+        "student_lines": [
+          "        print_to_pgm(current, N, t + 1); /* single thread here: we're back in serial */\n"
+        ]
+      },
+      {
+        "copy": [
+          77,
+          78
+        ]
+      },
+      {
+        "copy": [
+          3,
+          4
+        ]
+      },
+      {
+        "student_lines": [
+          "        /* Safe to swap: we're outside the parallel region created by 'parallel for' */\n"
+        ]
+      },
+      {
+        "copy": [
+          79,
+          83
+        ]
+      },
+      {
+        "copy": [
+          3,
+          4
+        ]
+      },
+      {
+        "copy": [
+          83,
+          143
+        ]
+      },
+      {
+        "copy": [
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "path": "a6/heat_transfer/mpi/mpi_gauss.c",
+    "base_path": "a6/heat_transfer/mpi/mpi_skeleton.c",
+    "base_source": "Named course MPI skeleton in original commit b2aeb14",
+    "base_sha256": "a7ad1ae47b832edf0919b8892e250b3550742f1172158d4f0e5811103cad3613",
+    "reconstructed_sha256": "ce4430b2bb5d8a2ad9a4a6ecd6567189b67810fb1631c5d9b33da65b509a7c12",
+    "segments": [
+      {
+        "copy": [
+          0,
+          9
+        ]
+      },
+      {
+        "student_lines": [
+          "    int global[2],local[2]; //global matrix dimensions and local matrix dimensions\n",
+          "    int global_padded[2];   //padded global matrix dimensions\n"
+        ]
+      },
+      {
+        "copy": [
+          11,
+          13
+        ]
+      },
+      {
+        "student_lines": [
+          "    int global_converged=0,converged=0; //flags for convergence\n",
+          "    MPI_Datatype dummy;     //dummy datatype\n",
+          "    double omega;           //relaxation factor\n"
+        ]
+      },
+      {
+        "copy": [
+          16,
+          17
+        ]
+      },
+      {
+        "student_lines": [
+          "    struct timeval tts,ttf,tcs,tcf;   //Timers\n"
+        ]
+      },
+      {
+        "copy": [
+          18,
+          20
+        ]
+      },
+      {
+        "student_lines": [
+          "    double ** U, ** u_current, ** u_previous, ** swap; \n"
+        ]
+      },
+      {
+        "copy": [
+          22,
+          27
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Read arguments----//\n"
+        ]
+      },
+      {
+        "copy": [
+          29,
+          41
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Comm CART_COMM;         \n",
+          "    int periods[2]={0,0};       \n",
+          "    int rank_grid[2];           \n"
+        ]
+      },
+      {
+        "copy": [
+          265,
+          266
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Cart_create(MPI_COMM_WORLD,2,grid,periods,0,&CART_COMM);    \n",
+          "    MPI_Cart_coords(CART_COMM,rank,2,rank_grid);                    \n"
+        ]
+      },
+      {
+        "copy": [
+          42,
+          43
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Compute local dimensions & Padding----//\n"
+        ]
+      },
+      {
+        "copy": [
+          54,
+          65
+        ]
+      },
+      {
+        "student_lines": [
+          "    //Initialization of omega\n"
+        ]
+      },
+      {
+        "copy": [
+          66,
+          68
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Allocate global 2D-domain----//\n"
+        ]
+      },
+      {
+        "copy": [
+          70,
+          75
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Allocate local 2D-subdomains----//\n"
+        ]
+      },
+      {
+        "copy": [
+          78,
+          81
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Datatypes Definition----//\n"
+        ]
+      },
+      {
+        "copy": [
+          88,
+          92
+        ]
+      },
+      {
+        "copy": [
+          94,
+          100
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Scatter parameters----//\n"
+        ]
+      },
+      {
+        "copy": [
+          101,
+          112
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Scatter----//\n",
+          "    MPI_Scatterv(rank == 0 ? &U[0][0] : NULL, \n",
+          "                 scattercounts, scatteroffset, global_block, \n",
+          "                 &u_previous[1][1], 1, local_block, \n",
+          "                 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          112,
+          113
+        ]
+      },
+      {
+        "student_lines": [
+          "    // Init u_current (copy initial state)\n",
+          "    for (i = 1; i <= local[0]; i++)\n",
+          "        for (j = 1; j <= local[1]; j++)\n",
+          "            u_current[i][j] = u_previous[i][j];\n"
+        ]
+      },
+      {
+        "copy": [
+          134,
+          138
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Communication Datatypes----//\n",
+          "    MPI_Datatype row_type, col_type;\n",
+          "    MPI_Type_contiguous(local[1], MPI_DOUBLE, &row_type);\n",
+          "    MPI_Type_commit(&row_type);\n",
+          "    MPI_Type_vector(local[0], 1, local[1] + 2, MPI_DOUBLE, &col_type);\n",
+          "    MPI_Type_commit(&col_type);\n"
+        ]
+      },
+      {
+        "copy": [
+          141,
+          142
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Find Neighbors----//\n"
+        ]
+      },
+      {
+        "copy": [
+          161,
+          162
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Cart_shift(CART_COMM, 0, 1, &north, &south);\n",
+          "    MPI_Cart_shift(CART_COMM, 1, 1, &west, &east);\n"
+        ]
+      },
+      {
+        "copy": [
+          143,
+          144
+        ]
+      },
+      {
+        "student_lines": [
+          "    //---Define iteration ranges-----//\n"
+        ]
+      },
+      {
+        "copy": [
+          182,
+          184
+        ]
+      },
+      {
+        "student_lines": [
+          "    i_min = 1;\n",
+          "    i_max = local[0];\n",
+          "    j_min = 1;\n",
+          "    j_max = local[1];\n"
+        ]
+      },
+      {
+        "copy": [
+          184,
+          185
+        ]
+      },
+      {
+        "student_lines": [
+          "    if (rank_grid[0] == 0) i_min = 2; \n",
+          "    if (rank_grid[0] == grid[0] - 1) {\n",
+          "        i_max = local[0] - (global_padded[0] - global[0]) - 1;\n",
+          "        if (global_padded[0] == global[0]) i_max = local[0] - 1;\n"
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          185,
+          186
+        ]
+      },
+      {
+        "student_lines": [
+          "    if (rank_grid[1] == 0) j_min = 2;\n",
+          "    if (rank_grid[1] == grid[1] - 1) {\n",
+          "         j_max = local[1] - (global_padded[1] - global[1]) - 1;\n",
+          "         if (global_padded[1] == global[1]) j_max = local[1] - 1;\n"
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          187,
+          188
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Computational core----//   \n",
+          "    gettimeofday(&tts, NULL);\n"
+        ]
+      },
+      {
+        "copy": [
+          188,
+          189
+        ]
+      },
+      {
+        "copy": [
+          209,
+          218
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 1. Swap\n",
+          "        swap = u_previous;\n",
+          "        u_previous = u_current;\n",
+          "        u_current = swap;\n"
+        ]
+      },
+      {
+        "copy": [
+          218,
+          219
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 2. Communication (Halo Exchange)\n",
+          "        MPI_Request reqs[8];\n",
+          "        MPI_Status stats[8];\n",
+          "        int req_cnt = 0;\n"
+        ]
+      },
+      {
+        "copy": [
+          222,
+          223
+        ]
+      },
+      {
+        "student_lines": [
+          "        // Send/Recv North\n",
+          "        MPI_Isend(&u_previous[1][1], 1, row_type, north, 1, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[0][1], 1, row_type, north, 2, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          223,
+          224
+        ]
+      },
+      {
+        "student_lines": [
+          "        // Send/Recv South\n",
+          "        MPI_Isend(&u_previous[local[0]][1], 1, row_type, south, 2, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[local[0]+1][1], 1, row_type, south, 1, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          224,
+          225
+        ]
+      },
+      {
+        "student_lines": [
+          "        // Send/Recv West\n",
+          "        MPI_Isend(&u_previous[1][1], 1, col_type, west, 3, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[1][0], 1, col_type, west, 4, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          225,
+          226
+        ]
+      },
+      {
+        "student_lines": [
+          "        // Send/Recv East\n",
+          "        MPI_Isend(&u_previous[1][local[1]], 1, col_type, east, 4, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[1][local[1]+1], 1, col_type, east, 3, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          227,
+          228
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Waitall(req_cnt, reqs, stats);\n"
+        ]
+      },
+      {
+        "copy": [
+          228,
+          229
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 3. Computation (Gauss-Seidel SOR)\n",
+          "        gettimeofday(&tcs, NULL); \n"
+        ]
+      },
+      {
+        "copy": [
+          230,
+          231
+        ]
+      },
+      {
+        "student_lines": [
+          "        // CRITICAL STEP FOR GAUSS-SEIDEL:\n",
+          "        // Update u_current ghost cells using u_previous ghost cells (which just received data).\n",
+          "        // This allows the formula to safely use u_current[i-1] when i=1.\n",
+          "        for(j=0; j<local[1]+2; j++) {\n",
+          "            u_current[0][j] = u_previous[0][j];             // North Ghost\n",
+          "            u_current[local[0]+1][j] = u_previous[local[0]+1][j]; // South Ghost\n"
+        ]
+      },
+      {
+        "copy": [
+          58,
+          59
+        ]
+      },
+      {
+        "student_lines": [
+          "        for(i=0; i<local[0]+2; i++) {\n",
+          "            u_current[i][0] = u_previous[i][0];             // West Ghost\n",
+          "            u_current[i][local[1]+1] = u_previous[i][local[1]+1]; // East Ghost\n"
+        ]
+      },
+      {
+        "copy": [
+          58,
+          59
+        ]
+      },
+      {
+        "copy": [
+          233,
+          234
+        ]
+      },
+      {
+        "student_lines": [
+          "        for (i = i_min; i <= i_max; i++) {\n",
+          "            for (j = j_min; j <= j_max; j++) {\n",
+          "                // Gauss-Seidel SOR formula \n",
+          "                // Uses u_current for North (i-1) and West (j-1) -> Most recent values\n",
+          "                // Uses u_previous for South (i+1) and East (j+1) -> Old values\n",
+          "                u_current[i][j] = u_previous[i][j] + \n",
+          "                                  (omega / 4.0) * (u_current[i-1][j] + u_current[i][j-1] +\n",
+          "                                                   u_previous[i+1][j] + u_previous[i][j+1] -\n",
+          "                                                   4.0 * u_previous[i][j]);\n"
+        ]
+      },
+      {
+        "copy": [
+          109,
+          110
+        ]
+      },
+      {
+        "copy": [
+          58,
+          59
+        ]
+      },
+      {
+        "student_lines": [
+          "        gettimeofday(&tcf, NULL); \n",
+          "        tcomp += (tcf.tv_sec - tcs.tv_sec) + (tcf.tv_usec - tcs.tv_usec) * 0.000001;\n"
+        ]
+      },
+      {
+        "copy": [
+          235,
+          236
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 4. Convergence Check\n",
+          "        #ifdef TEST_CONV\n",
+          "        if (t % C == 0) {\n",
+          "            converged = converge(u_previous, u_current, i_min, i_max, j_min, j_max);\n",
+          "            MPI_Allreduce(&converged, &global_converged, 1, MPI_INT, MPI_LAND, CART_COMM);\n",
+          "        }       \n"
+        ]
+      },
+      {
+        "copy": [
+          315,
+          316
+        ]
+      },
+      {
+        "copy": [
+          265,
+          274
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Gather results----//\n"
+        ]
+      },
+      {
+        "copy": [
+          278,
+          282
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Gatherv(&u_current[1][1], 1, local_block, \n",
+          "                rank == 0 ? &U[0][0] : NULL, \n",
+          "                scattercounts, scatteroffset, global_block, \n",
+          "                0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          282,
+          283
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Printing results----//\n"
+        ]
+      },
+      {
+        "copy": [
+          307,
+          308
+        ]
+      },
+      {
+        "student_lines": [
+          "        printf(\"GaussSeidelSOR X %d Y %d Px %d Py %d Iter %d ComputationTime %lf TotalTime %lf midpoint %lf\\n\",\n",
+          "                global[0],global[1],grid[0],grid[1],t,comp_time,total_time,U[global[0]/2][global[1]/2]);\n"
+        ]
+      },
+      {
+        "copy": [
+          19,
+          20
+        ]
+      },
+      {
+        "copy": [
+          310,
+          312
+        ]
+      },
+      {
+        "student_lines": [
+          "        sprintf(s,\"resGaussSeidelMPI_%dx%d_%dx%d\",global[0],global[1],grid[0],grid[1]);\n"
+        ]
+      },
+      {
+        "copy": [
+          313,
+          316
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          316,
+          317
+        ]
+      },
+      {
+        "student_lines": [
+          "    // Free Datatypes before Finalize\n",
+          "    MPI_Type_free(&row_type);\n",
+          "    MPI_Type_free(&col_type);\n",
+          "    MPI_Type_free(&global_block);\n",
+          "    MPI_Type_free(&local_block);\n",
+          "    if(rank==0){\n",
+          "        free(scattercounts);\n",
+          "        free(scatteroffset);\n"
+        ]
+      },
+      {
+        "copy": [
+          317,
+          318
+        ]
+      },
+      {
+        "copy": [
+          6,
+          7
+        ]
+      },
+      {
+        "copy": [
+          318,
+          321
+        ]
+      }
+    ]
+  },
+  {
+    "path": "a6/heat_transfer/mpi/mpi_jacobi.c",
+    "base_path": "a6/heat_transfer/mpi/mpi_skeleton.c",
+    "base_source": "Named course MPI skeleton in original commit b2aeb14",
+    "base_sha256": "a7ad1ae47b832edf0919b8892e250b3550742f1172158d4f0e5811103cad3613",
+    "reconstructed_sha256": "9c66a3b391d3cc3f27338cb35b29a01d4c048ade652f9a329dfc5248b64aca5d",
+    "segments": [
+      {
+        "copy": [
+          0,
+          9
+        ]
+      },
+      {
+        "student_lines": [
+          "    int global[2],local[2]; //global matrix dimensions and local matrix dimensions\n",
+          "    int global_padded[2];   //padded global matrix dimensions\n"
+        ]
+      },
+      {
+        "copy": [
+          11,
+          13
+        ]
+      },
+      {
+        "student_lines": [
+          "    int global_converged=0,converged=0; //flags for convergence\n",
+          "    MPI_Datatype dummy;     //dummy datatype\n",
+          "    double omega;           //relaxation factor - useless for Jacobi\n"
+        ]
+      },
+      {
+        "copy": [
+          16,
+          17
+        ]
+      },
+      {
+        "student_lines": [
+          "    struct timeval tts,ttf,tcs,tcf;   //Timers\n"
+        ]
+      },
+      {
+        "copy": [
+          18,
+          19
+        ]
+      },
+      {
+        "student_lines": [
+          "    double t_conv=0.0;\n",
+          "    double t1,t2;\n"
+        ]
+      },
+      {
+        "copy": [
+          19,
+          20
+        ]
+      },
+      {
+        "student_lines": [
+          "    double ** U, ** u_current, ** u_previous, ** swap; \n"
+        ]
+      },
+      {
+        "copy": [
+          22,
+          27
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Read arguments----//\n"
+        ]
+      },
+      {
+        "copy": [
+          29,
+          41
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Comm CART_COMM;         \n",
+          "    int periods[2]={0,0};       \n",
+          "    int rank_grid[2];           \n"
+        ]
+      },
+      {
+        "copy": [
+          265,
+          266
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Cart_create(MPI_COMM_WORLD,2,grid,periods,0,&CART_COMM);    \n",
+          "    MPI_Cart_coords(CART_COMM,rank,2,rank_grid);                    \n"
+        ]
+      },
+      {
+        "copy": [
+          42,
+          43
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Compute local dimensions & Padding----//\n"
+        ]
+      },
+      {
+        "copy": [
+          54,
+          65
+        ]
+      },
+      {
+        "student_lines": [
+          "    //Initialization of omega\n"
+        ]
+      },
+      {
+        "copy": [
+          66,
+          68
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Allocate global 2D-domain----//\n"
+        ]
+      },
+      {
+        "copy": [
+          70,
+          75
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Allocate local 2D-subdomains----//\n"
+        ]
+      },
+      {
+        "copy": [
+          78,
+          81
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Datatypes Definition----//\n"
+        ]
+      },
+      {
+        "copy": [
+          88,
+          92
+        ]
+      },
+      {
+        "copy": [
+          94,
+          100
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Scatter parameters----//\n"
+        ]
+      },
+      {
+        "copy": [
+          101,
+          112
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Scatter----//\n",
+          "    MPI_Scatterv(rank == 0 ? &U[0][0] : NULL, \n",
+          "                 scattercounts, scatteroffset, global_block, \n",
+          "                 &u_previous[1][1], 1, local_block, \n",
+          "                 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          112,
+          113
+        ]
+      },
+      {
+        "student_lines": [
+          "    // Init u_current\n",
+          "    for (i = 1; i <= local[0]; i++)\n",
+          "        for (j = 1; j <= local[1]; j++)\n",
+          "            u_current[i][j] = u_previous[i][j];\n"
+        ]
+      },
+      {
+        "copy": [
+          134,
+          138
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Communication Datatypes----//\n",
+          "    MPI_Datatype row_type, col_type;\n",
+          "    MPI_Type_contiguous(local[1], MPI_DOUBLE, &row_type);\n",
+          "    MPI_Type_commit(&row_type);\n",
+          "    MPI_Type_vector(local[0], 1, local[1] + 2, MPI_DOUBLE, &col_type);\n",
+          "    MPI_Type_commit(&col_type);\n"
+        ]
+      },
+      {
+        "copy": [
+          141,
+          142
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Find Neighbors----//\n"
+        ]
+      },
+      {
+        "copy": [
+          161,
+          162
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Cart_shift(CART_COMM, 0, 1, &north, &south);\n",
+          "    MPI_Cart_shift(CART_COMM, 1, 1, &west, &east);\n"
+        ]
+      },
+      {
+        "copy": [
+          143,
+          144
+        ]
+      },
+      {
+        "student_lines": [
+          "    //---Define iteration ranges-----//\n"
+        ]
+      },
+      {
+        "copy": [
+          182,
+          184
+        ]
+      },
+      {
+        "student_lines": [
+          "    i_min = 1;\n",
+          "    i_max = local[0];\n",
+          "    j_min = 1;\n",
+          "    j_max = local[1];\n"
+        ]
+      },
+      {
+        "copy": [
+          184,
+          185
+        ]
+      },
+      {
+        "student_lines": [
+          "    if (rank_grid[0] == 0) i_min = 2; \n",
+          "    if (rank_grid[0] == grid[0] - 1) {\n",
+          "        i_max = local[0] - (global_padded[0] - global[0]) - 1;\n",
+          "        if (global_padded[0] == global[0]) i_max = local[0] - 1;\n"
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          185,
+          186
+        ]
+      },
+      {
+        "student_lines": [
+          "    if (rank_grid[1] == 0) j_min = 2;\n",
+          "    if (rank_grid[1] == grid[1] - 1) {\n",
+          "         j_max = local[1] - (global_padded[1] - global[1]) - 1;\n",
+          "         if (global_padded[1] == global[1]) j_max = local[1] - 1;\n"
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          187,
+          188
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Computational core----//   \n",
+          "    gettimeofday(&tts, NULL);\n"
+        ]
+      },
+      {
+        "copy": [
+          188,
+          189
+        ]
+      },
+      {
+        "copy": [
+          209,
+          218
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 1. Swap\n",
+          "        swap = u_previous;\n",
+          "        u_previous = u_current;\n",
+          "        u_current = swap;\n"
+        ]
+      },
+      {
+        "copy": [
+          218,
+          219
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 2. Communication\n",
+          "        MPI_Request reqs[8];\n",
+          "        MPI_Status stats[8];\n",
+          "        int req_cnt = 0;\n"
+        ]
+      },
+      {
+        "copy": [
+          222,
+          223
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[1][1], 1, row_type, north, 1, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[0][1], 1, row_type, north, 2, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          223,
+          224
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[local[0]][1], 1, row_type, south, 2, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[local[0]+1][1], 1, row_type, south, 1, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          224,
+          225
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[1][1], 1, col_type, west, 3, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[1][0], 1, col_type, west, 4, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          225,
+          226
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[1][local[1]], 1, col_type, east, 4, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[1][local[1]+1], 1, col_type, east, 3, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          227,
+          228
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Waitall(req_cnt, reqs, stats);\n"
+        ]
+      },
+      {
+        "copy": [
+          228,
+          229
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 3. Computation\n",
+          "        gettimeofday(&tcs, NULL); \n",
+          "        for (i = i_min; i <= i_max; i++) {\n",
+          "            for (j = j_min; j <= j_max; j++) {\n",
+          "                u_current[i][j] = (u_previous[i-1][j] + u_previous[i+1][j] + \n",
+          "                                   u_previous[i][j-1] + u_previous[i][j+1]) / 4.0;\n"
+        ]
+      },
+      {
+        "copy": [
+          109,
+          110
+        ]
+      },
+      {
+        "copy": [
+          58,
+          59
+        ]
+      },
+      {
+        "student_lines": [
+          "        gettimeofday(&tcf, NULL); \n",
+          "        tcomp += (tcf.tv_sec - tcs.tv_sec) + (tcf.tv_usec - tcs.tv_usec) * 0.000001;\n"
+        ]
+      },
+      {
+        "copy": [
+          230,
+          231
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 4. Convergence Check\n",
+          "        #ifdef TEST_CONV\n",
+          "        if (t % C == 0) {\n",
+          "            converged = converge(u_previous, u_current, i_min, i_max, j_min, j_max);\n"
+        ]
+      },
+      {
+        "copy": [
+          233,
+          234
+        ]
+      },
+      {
+        "student_lines": [
+          "\t    t1=MPI_Wtime(); //\n",
+          "            MPI_Allreduce(&converged, &global_converged, 1, MPI_INT, MPI_LAND, CART_COMM);\n"
+        ]
+      },
+      {
+        "copy": [
+          235,
+          236
+        ]
+      },
+      {
+        "student_lines": [
+          "\t    t2=MPI_Wtime();\n",
+          "            t_conv+=(t2-t1);\n",
+          "        }       \n"
+        ]
+      },
+      {
+        "copy": [
+          315,
+          316
+        ]
+      },
+      {
+        "copy": [
+          265,
+          274
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Gather results----//\n"
+        ]
+      },
+      {
+        "copy": [
+          278,
+          282
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Gatherv(&u_current[1][1], 1, local_block, \n",
+          "                rank == 0 ? &U[0][0] : NULL, \n",
+          "                scattercounts, scatteroffset, global_block, \n",
+          "                0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          282,
+          283
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Printing results----//\n"
+        ]
+      },
+      {
+        "copy": [
+          307,
+          308
+        ]
+      },
+      {
+        "student_lines": [
+          "        printf(\"Jacobi X %d Y %d Px %d Py %d Iter %d ComputationTime %lf TotalTime %lf ConvergenceTime %lf midpoint %lf\\n\",\n",
+          "                global[0],global[1],grid[0],grid[1],t,comp_time,total_time,t_conv,U[global[0]/2][global[1]/2]);\n"
+        ]
+      },
+      {
+        "copy": [
+          19,
+          20
+        ]
+      },
+      {
+        "copy": [
+          310,
+          316
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          316,
+          317
+        ]
+      },
+      {
+        "student_lines": [
+          "    // Free Datatypes before Finalize\n",
+          "    MPI_Type_free(&row_type);\n",
+          "    MPI_Type_free(&col_type);\n",
+          "    MPI_Type_free(&global_block);\n",
+          "    MPI_Type_free(&local_block);\n",
+          "    if(rank==0){\n",
+          "        free(scattercounts);\n",
+          "        free(scatteroffset);\n"
+        ]
+      },
+      {
+        "copy": [
+          317,
+          318
+        ]
+      },
+      {
+        "copy": [
+          6,
+          7
+        ]
+      },
+      {
+        "copy": [
+          318,
+          321
+        ]
+      }
+    ]
+  },
+  {
+    "path": "a6/heat_transfer/mpi/mpi_redblack.c",
+    "base_path": "a6/heat_transfer/mpi/mpi_skeleton.c",
+    "base_source": "Named course MPI skeleton in original commit b2aeb14",
+    "base_sha256": "a7ad1ae47b832edf0919b8892e250b3550742f1172158d4f0e5811103cad3613",
+    "reconstructed_sha256": "be9ab5329422da471b1cfc7fca2749a9398245be492f50f67e6af884ca8e47d7",
+    "segments": [
+      {
+        "copy": [
+          0,
+          9
+        ]
+      },
+      {
+        "student_lines": [
+          "    int global[2],local[2]; //global matrix dimensions and local matrix dimensions\n",
+          "    int global_padded[2];   //padded global matrix dimensions\n"
+        ]
+      },
+      {
+        "copy": [
+          11,
+          13
+        ]
+      },
+      {
+        "student_lines": [
+          "    int global_converged=0,converged=0; //flags for convergence\n",
+          "    MPI_Datatype dummy;     //dummy datatype\n",
+          "    double omega;           //relaxation factor\n"
+        ]
+      },
+      {
+        "copy": [
+          16,
+          17
+        ]
+      },
+      {
+        "student_lines": [
+          "    struct timeval tts,ttf,tcs,tcf;   //Timers\n"
+        ]
+      },
+      {
+        "copy": [
+          18,
+          20
+        ]
+      },
+      {
+        "student_lines": [
+          "    double ** U, ** u_current, ** u_previous, ** swap; \n"
+        ]
+      },
+      {
+        "copy": [
+          22,
+          27
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Read arguments----//\n"
+        ]
+      },
+      {
+        "copy": [
+          29,
+          41
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Comm CART_COMM;         \n",
+          "    int periods[2]={0,0};       \n",
+          "    int rank_grid[2];           \n"
+        ]
+      },
+      {
+        "copy": [
+          265,
+          266
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Cart_create(MPI_COMM_WORLD,2,grid,periods,0,&CART_COMM);    \n",
+          "    MPI_Cart_coords(CART_COMM,rank,2,rank_grid);                    \n"
+        ]
+      },
+      {
+        "copy": [
+          42,
+          43
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Compute local dimensions & Padding----//\n"
+        ]
+      },
+      {
+        "copy": [
+          54,
+          65
+        ]
+      },
+      {
+        "student_lines": [
+          "    //Initialization of omega\n"
+        ]
+      },
+      {
+        "copy": [
+          66,
+          68
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Allocate global 2D-domain----//\n"
+        ]
+      },
+      {
+        "copy": [
+          70,
+          75
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Allocate local 2D-subdomains----//\n"
+        ]
+      },
+      {
+        "copy": [
+          78,
+          81
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Datatypes Definition----//\n"
+        ]
+      },
+      {
+        "copy": [
+          88,
+          92
+        ]
+      },
+      {
+        "copy": [
+          94,
+          100
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Scatter parameters----//\n"
+        ]
+      },
+      {
+        "copy": [
+          101,
+          112
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Scatter----//\n",
+          "    MPI_Scatterv(rank == 0 ? &U[0][0] : NULL, \n",
+          "                 scattercounts, scatteroffset, global_block, \n",
+          "                 &u_previous[1][1], 1, local_block, \n",
+          "                 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          112,
+          113
+        ]
+      },
+      {
+        "student_lines": [
+          "    // Init u_current\n",
+          "    for (i = 1; i <= local[0]; i++)\n",
+          "        for (j = 1; j <= local[1]; j++)\n",
+          "            u_current[i][j] = u_previous[i][j];\n"
+        ]
+      },
+      {
+        "copy": [
+          134,
+          138
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Communication Datatypes----//\n",
+          "    MPI_Datatype row_type, col_type;\n",
+          "    MPI_Type_contiguous(local[1], MPI_DOUBLE, &row_type);\n",
+          "    MPI_Type_commit(&row_type);\n",
+          "    MPI_Type_vector(local[0], 1, local[1] + 2, MPI_DOUBLE, &col_type);\n",
+          "    MPI_Type_commit(&col_type);\n"
+        ]
+      },
+      {
+        "copy": [
+          141,
+          142
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Find Neighbors----//\n"
+        ]
+      },
+      {
+        "copy": [
+          161,
+          162
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Cart_shift(CART_COMM, 0, 1, &north, &south);\n",
+          "    MPI_Cart_shift(CART_COMM, 1, 1, &west, &east);\n"
+        ]
+      },
+      {
+        "copy": [
+          143,
+          144
+        ]
+      },
+      {
+        "student_lines": [
+          "    //---Define iteration ranges-----//\n"
+        ]
+      },
+      {
+        "copy": [
+          182,
+          184
+        ]
+      },
+      {
+        "student_lines": [
+          "    i_min = 1;\n",
+          "    i_max = local[0];\n",
+          "    j_min = 1;\n",
+          "    j_max = local[1];\n"
+        ]
+      },
+      {
+        "copy": [
+          184,
+          185
+        ]
+      },
+      {
+        "student_lines": [
+          "    if (rank_grid[0] == 0) i_min = 2; \n",
+          "    if (rank_grid[0] == grid[0] - 1) {\n",
+          "        i_max = local[0] - (global_padded[0] - global[0]) - 1;\n",
+          "        if (global_padded[0] == global[0]) i_max = local[0] - 1;\n"
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          185,
+          186
+        ]
+      },
+      {
+        "student_lines": [
+          "    if (rank_grid[1] == 0) j_min = 2;\n",
+          "    if (rank_grid[1] == grid[1] - 1) {\n",
+          "         j_max = local[1] - (global_padded[1] - global[1]) - 1;\n",
+          "         if (global_padded[1] == global[1]) j_max = local[1] - 1;\n"
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          187,
+          188
+        ]
+      },
+      {
+        "student_lines": [
+          "    // Calculate global offsets to determine Red/Black parity correctly across processes\n",
+          "    // Since padding ensures equal local sizes:\n",
+          "    int global_i_offset = rank_grid[0] * local[0]; \n",
+          "    int global_j_offset = rank_grid[1] * local[1];\n"
+        ]
+      },
+      {
+        "copy": [
+          188,
+          189
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Computational core----//   \n",
+          "    gettimeofday(&tts, NULL);\n"
+        ]
+      },
+      {
+        "copy": [
+          189,
+          190
+        ]
+      },
+      {
+        "copy": [
+          209,
+          218
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 1. Swap\n",
+          "        swap = u_previous;\n",
+          "        u_previous = u_current;\n",
+          "        u_current = swap;\n"
+        ]
+      },
+      {
+        "copy": [
+          218,
+          219
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 2. Communication (Halo Exchange)\n",
+          "        MPI_Request reqs[8];\n",
+          "        MPI_Status stats[8];\n",
+          "        int req_cnt = 0;\n"
+        ]
+      },
+      {
+        "copy": [
+          222,
+          223
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[1][1], 1, row_type, north, 1, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[0][1], 1, row_type, north, 2, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          223,
+          224
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[local[0]][1], 1, row_type, south, 2, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[local[0]+1][1], 1, row_type, south, 1, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          224,
+          225
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[1][1], 1, col_type, west, 3, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[1][0], 1, col_type, west, 4, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          225,
+          226
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Isend(&u_previous[1][local[1]], 1, col_type, east, 4, CART_COMM, &reqs[req_cnt++]);\n",
+          "        MPI_Irecv(&u_previous[1][local[1]+1], 1, col_type, east, 3, CART_COMM, &reqs[req_cnt++]);\n"
+        ]
+      },
+      {
+        "copy": [
+          227,
+          228
+        ]
+      },
+      {
+        "student_lines": [
+          "        MPI_Waitall(req_cnt, reqs, stats);\n"
+        ]
+      },
+      {
+        "copy": [
+          228,
+          229
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 3. Computation (Red-Black SOR)\n",
+          "        gettimeofday(&tcs, NULL); \n"
+        ]
+      },
+      {
+        "copy": [
+          230,
+          231
+        ]
+      },
+      {
+        "student_lines": [
+          "        // --- RED PHASE ---\n",
+          "        // Calculate Red cells ((i+j) is even). \n",
+          "        // Reads from u_previous (Black neighbors).\n",
+          "        for (i = i_min; i <= i_max; i++) {\n",
+          "            for (j = j_min; j <= j_max; j++) {\n",
+          "                // Check parity using global coordinates\n",
+          "                if ( ((global_i_offset + i) + (global_j_offset + j)) % 2 == 0 ) {\n",
+          "                    u_current[i][j] = u_previous[i][j] + \n",
+          "                                      (omega / 4.0) * (u_previous[i-1][j] + u_previous[i][j-1] +\n",
+          "                                                       u_previous[i+1][j] + u_previous[i][j+1] -\n",
+          "                                                       4.0 * u_previous[i][j]);\n",
+          "                } else {\n",
+          "                    // Copy Black cells to current (needed so Black phase can read them if accessed)\n",
+          "                    u_current[i][j] = u_previous[i][j];\n",
+          "                }\n"
+        ]
+      },
+      {
+        "copy": [
+          109,
+          110
+        ]
+      },
+      {
+        "copy": [
+          58,
+          59
+        ]
+      },
+      {
+        "copy": [
+          233,
+          234
+        ]
+      },
+      {
+        "student_lines": [
+          "        // --- BLACK PHASE ---\n",
+          "        // Calculate Black cells ((i+j) is odd). \n",
+          "        // Reads from u_current (Red neighbors - NEW values) and u_previous (self).\n",
+          "        for (i = i_min; i <= i_max; i++) {\n",
+          "            for (j = j_min; j <= j_max; j++) {\n",
+          "                if ( ((global_i_offset + i) + (global_j_offset + j)) % 2 == 1 ) {\n",
+          "                    u_current[i][j] = u_previous[i][j] + \n",
+          "                                      (omega / 4.0) * (u_current[i-1][j] + u_current[i][j-1] +\n",
+          "                                                       u_current[i+1][j] + u_current[i][j+1] -\n",
+          "                                                       4.0 * u_previous[i][j]);\n",
+          "                }\n"
+        ]
+      },
+      {
+        "copy": [
+          109,
+          110
+        ]
+      },
+      {
+        "copy": [
+          58,
+          59
+        ]
+      },
+      {
+        "copy": [
+          235,
+          236
+        ]
+      },
+      {
+        "student_lines": [
+          "        gettimeofday(&tcf, NULL); \n",
+          "        tcomp += (tcf.tv_sec - tcs.tv_sec) + (tcf.tv_usec - tcs.tv_usec) * 0.000001;\n"
+        ]
+      },
+      {
+        "copy": [
+          236,
+          237
+        ]
+      },
+      {
+        "student_lines": [
+          "        // 4. Convergence Check\n",
+          "        #ifdef TEST_CONV\n",
+          "        if (t % C == 0) {\n",
+          "            converged = converge(u_previous, u_current, i_min, i_max, j_min, j_max);\n",
+          "            MPI_Allreduce(&converged, &global_converged, 1, MPI_INT, MPI_LAND, CART_COMM);\n",
+          "        }       \n"
+        ]
+      },
+      {
+        "copy": [
+          315,
+          316
+        ]
+      },
+      {
+        "copy": [
+          265,
+          274
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Gather results----//\n"
+        ]
+      },
+      {
+        "copy": [
+          278,
+          282
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Gatherv(&u_current[1][1], 1, local_block, \n",
+          "                rank == 0 ? &U[0][0] : NULL, \n",
+          "                scattercounts, scatteroffset, global_block, \n",
+          "                0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          282,
+          283
+        ]
+      },
+      {
+        "student_lines": [
+          "    //----Printing results----//\n"
+        ]
+      },
+      {
+        "copy": [
+          307,
+          308
+        ]
+      },
+      {
+        "student_lines": [
+          "        printf(\"RedBlackSOR X %d Y %d Px %d Py %d Iter %d ComputationTime %lf TotalTime %lf midpoint %lf\\n\",\n",
+          "                global[0],global[1],grid[0],grid[1],t,comp_time,total_time,U[global[0]/2][global[1]/2]);\n"
+        ]
+      },
+      {
+        "copy": [
+          19,
+          20
+        ]
+      },
+      {
+        "copy": [
+          310,
+          312
+        ]
+      },
+      {
+        "student_lines": [
+          "        sprintf(s,\"resRedBlackMPI_%dx%d_%dx%d\",global[0],global[1],grid[0],grid[1]);\n"
+        ]
+      },
+      {
+        "copy": [
+          313,
+          316
+        ]
+      },
+      {
+        "copy": [
+          32,
+          33
+        ]
+      },
+      {
+        "copy": [
+          316,
+          317
+        ]
+      },
+      {
+        "student_lines": [
+          "    // Free Datatypes before Finalize\n",
+          "    MPI_Type_free(&row_type);\n",
+          "    MPI_Type_free(&col_type);\n",
+          "    MPI_Type_free(&global_block);\n",
+          "    MPI_Type_free(&local_block);\n",
+          "    if(rank==0){\n",
+          "        free(scattercounts);\n",
+          "        free(scatteroffset);\n"
+        ]
+      },
+      {
+        "copy": [
+          317,
+          318
+        ]
+      },
+      {
+        "copy": [
+          6,
+          7
+        ]
+      },
+      {
+        "copy": [
+          318,
+          320
+        ]
+      },
+      {
+        "student_lines": [
+          "}"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "a6/kmeans/file_io.c",
+    "base_path": "a6/kmeans/file_io.c",
+    "base_source": "Audit comparison base at original import b2aeb14",
+    "base_sha256": "04060c6d2dd828050a62f91b86c631ec00218458bcb9b770cd8c2aa655dda5fa",
+    "reconstructed_sha256": "c5802629d9cb78559523cef23631b3e21aaa5175acbcbd5235ec7b60c9615205",
+    "segments": [
+      {
+        "copy": [
+          0,
+          26
+        ]
+      },
+      {
+        "student_lines": [
+          "    *rank_numObjs = numObjs / size;\n",
+          "    if (rank < numObjs % size) {\n",
+          "        (*rank_numObjs)++;\n"
+        ]
+      },
+      {
+        "copy": [
+          47,
+          48
+        ]
+      },
+      {
+        "copy": [
+          8,
+          9
+        ]
+      },
+      {
+        "copy": [
+          26,
+          27
+        ]
+      },
+      {
+        "copy": [
+          30,
+          41
+        ]
+      },
+      {
+        "student_lines": [
+          "        int count = 0;\n",
+          "        int remainder = numObjs % size;\n"
+        ]
+      },
+      {
+        "copy": [
+          41,
+          42
+        ]
+      },
+      {
+        "student_lines": [
+          "        for (k = 0; k < size; k++) {\n"
+        ]
+      },
+      {
+        "copy": [
+          42,
+          43
+        ]
+      },
+      {
+        "student_lines": [
+          "            int k_numObjs = numObjs / size;\n",
+          "            if (k < remainder) {\n",
+          "                k_numObjs++;\n"
+        ]
+      },
+      {
+        "copy": [
+          68,
+          69
+        ]
+      },
+      {
+        "student_lines": [
+          "            \n",
+          "            sendcounts[k] = k_numObjs * numCoords;\n",
+          "            displs[k] = count;\n",
+          "            count += sendcounts[k];\n"
+        ]
+      },
+      {
+        "copy": [
+          69,
+          70
+        ]
+      },
+      {
+        "copy": [
+          47,
+          52
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Bcast(sendcounts, size, MPI_INT, 0, MPI_COMM_WORLD);\n",
+          "    MPI_Bcast(displs, size, MPI_INT, 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          53,
+          75
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Scatterv(objects, sendcounts, displs, MPI_DOUBLE, rank_objects, sendcounts[rank], MPI_DOUBLE, 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          75,
+          82
+        ]
+      }
+    ]
+  },
+  {
+    "path": "a6/kmeans/main.c",
+    "base_path": "a6/kmeans/main.c",
+    "base_source": "Audit comparison base at original import b2aeb14",
+    "base_sha256": "b9f9ea9b2f09fb2d8000afdc985a8441a19ce66efe1c8b95dd608df05d49f5d7",
+    "reconstructed_sha256": "6b996b2efea341576249d99ad9e542713ddc01c328da93a4a4310a044ece168d",
+    "segments": [
+      {
+        "copy": [
+          0,
+          116
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Bcast(clusters, numClusters * numCoords, MPI_DOUBLE, 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          116,
+          126
+        ]
+      },
+      {
+        "student_lines": [
+          "    kmeans(objects, numCoords, rank_numObjs, numClusters, threshold, loop_threshold, membership, clusters);\n"
+        ]
+      },
+      {
+        "copy": [
+          127,
+          147
+        ]
+      },
+      {
+        "student_lines": [
+          "        int sum_disp = 0;\n",
+          "        int remainder = numObjs % size;\n"
+        ]
+      },
+      {
+        "copy": [
+          147,
+          148
+        ]
+      },
+      {
+        "student_lines": [
+          "        for (j = 0; j < size; j++) {\n",
+          "            // Υπολογισμός πόσα αντικείμενα περιμένουμε από το rank 'j'\n",
+          "            int j_numObjs = numObjs / size;\n",
+          "            if (j < remainder) {\n",
+          "                j_numObjs++;\n",
+          "            }\n"
+        ]
+      },
+      {
+        "copy": [
+          148,
+          149
+        ]
+      },
+      {
+        "student_lines": [
+          "            recvcounts[j] = j_numObjs; // Εδώ είναι σκέτα αντικείμενα (int)\n",
+          "            displs[j] = sum_disp;\n",
+          "            sum_disp += recvcounts[j];\n"
+        ]
+      },
+      {
+        "copy": [
+          65,
+          66
+        ]
+      },
+      {
+        "copy": [
+          154,
+          159
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Bcast(recvcounts, size, MPI_INT, 0, MPI_COMM_WORLD);\n",
+          "    MPI_Bcast(displs, size, MPI_INT, 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          160,
+          165
+        ]
+      },
+      {
+        "student_lines": [
+          "    MPI_Gatherv(membership, rank_numObjs, MPI_INT, tot_membership, recvcounts, displs, MPI_INT, 0, MPI_COMM_WORLD);\n"
+        ]
+      },
+      {
+        "copy": [
+          165,
+          179
+        ]
+      }
+    ]
+  }
+]
